@@ -17,4 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('twitter', 'App\Http\Controllers\TwitterController@index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
+Route::get('twitter', 'App\Http\Controllers\TwitterController@index')->name('tweet.index');
+Route::get('keep', 'App\Http\Controllers\TwitterController@keep')->name('tweet.keep');
+Route::post('twitter', 'App\Http\Controllers\TwitterController@save')->name('tweet.save');
+Route::delete('keep', 'App\Http\Controllers\TwitterController@delete')->name('tweet.delete');

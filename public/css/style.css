@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    color: #333;
+    font-size: 1.6rem;
+}
+
+textarea {
+	width: 100%;  /* 横幅 */
+	height: 80px; /* 高さ */
+}
