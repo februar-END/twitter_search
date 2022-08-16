@@ -1,7 +1,7 @@
-# <a href="https://nein-februar.com/twitter">TweetSeeker</a>
+# <a href="https://tweet-seeker.net/twitter">TweetSeeker</a>
 ## 概要
 TweetSeekerは，TwitterのAPIを利用し，キーワードに合致するTweetを検索・保存できるWebアプリです。<br>
-https://nein-februar.com/twitter
+https://tweet-seeker.net/twitter
 ## 環境(AWS)
 1. VPCで仮想ネットワークを構築。
 2. パブリックサブネットにEC2でWebサーバーを設置。
