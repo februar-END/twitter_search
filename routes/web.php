@@ -31,6 +31,6 @@ Route::middleware('auth')->group(function (){
         ->name('tweet.save');
     Route::get('keep/{id}', 'App\Http\Controllers\TwitterController@keep')
         ->name('tweet.keep')->where('id', '[0-9]+');
-    Route::delete('keep', 'App\Http\Controllers\TwitterController@delete')
-        ->name('tweet.delete');
+    Route::delete('keep/{id}', 'App\Http\Controllers\TwitterController@delete')
+        ->name('tweet.delete')->where('id', '[0-9]+');
 });

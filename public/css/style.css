@@ -1,15 +1,25 @@
-@charset "utf-8";
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
 
-html{
-    font-size: 62.5%;
+
+
+header {
+    width: 100vw;
+    background-color: rgba(169, 226, 215, 0.64);
+  }
+  
+  main {
+    flex: 1;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    overflow-y: scroll;
 }
 
-body{
-    color: #333;
-    font-size: 1.6rem;
-}
-
-textarea {
-	width: 100%;  /* 横幅 */
-	height: 80px; /* 高さ */
-}
+footer {
+    width: 100%;
+    background-color: rgba(169, 226, 215, 0.64);
+  }
