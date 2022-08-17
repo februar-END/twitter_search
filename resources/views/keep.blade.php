@@ -11,9 +11,20 @@
 
     <body>
     <div class="container">
+
         <header>
-            <a href="{{ route('tweet.index') }}"><p>Twitter検索フォーム</p></a>
-            <a href="{{ route('tweet.keep',['id' => $id]) }}"><p>保存したTweet</p></a>
+            <nav id="g_navi">
+            <h1>TweetSeeker!</h1>
+            <ul class="global-nav">
+                <li><a href="{{ route('tweet.index') }}"><p>Twitter検索</p></a></li>
+                @auth
+                <li><a href="{{ route('tweet.keep',['id' => $id]) }}"><p>保存したTweet</p></a></li>
+                @endauth   
+            </ul>   
+            </nav>
+        </header>
+
+        <header>
             @if(session('feedback.success'))
                 <p style="color: green">{{ session('feedback.success') }}</p>
             @endif

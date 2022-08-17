@@ -11,18 +11,33 @@
 <body>
     <div class="container">
         <header>
-            <a href="{{ route('tweet.index') }}"><p>Twitter検索フォーム</p></a>
-            @auth
-                <a href="{{ route('tweet.keep',['id' => $id]) }}"><p>保存したTweet</p></a>
-            @endauth
-            <form action="{{ route('tweet.index') }}" method="get">
-                @csrf
-                <label for="tweet-content">Tweet検索</label>
-                <input type="text" name="searchWord" placeholder="キーワードを入力">
-                <button type="submit">検索</button>
-            </form>
-            <p><button type="submit" name="top" form="tweet">選択したTweetの保存</button></p>
+            <nav id="g_navi">
+            <h1>TweetSeeker!</h1>
+            <ul class="global-nav">
+                <li><a href="{{ route('tweet.index') }}"><p>Twitter検索</p></a></li>
+                @auth
+                <li><a href="{{ route('tweet.keep',['id' => $id]) }}"><p>保存したTweet</p></a></li>
+                @endauth   
+            </ul>   
+            </nav>
         </header>
+
+        <header>
+                <ul>
+                    <li>
+                        <form action="{{ route('tweet.index') }}" method="get">
+                            @csrf
+                            <input type="text" name="searchWord" placeholder="キーワードを入力">
+                            <button type="submit">SEARCH</button>
+                        </form>
+                    </li>
+                    <li>
+                        <p><button type="submit" name="top" form="tweet">SAVE Tweet</button></p>
+                    </li>
+                </ul>
+        </header>
+
+
 
         @auth
         <main>

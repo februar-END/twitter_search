@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -6,13 +11,16 @@
   }
 
 
-
 header {
-    width: 100vw;
+    width: 100%;
     background-color: rgba(169, 226, 215, 0.64);
-  }
-  
-  main {
+    display:flex;
+    justify-content:left;
+    align-items: center;
+    padding: 0.2%
+}
+
+main {
     flex: 1;
     width: 100vw;
     background-color: rgb(255, 255, 255);
@@ -20,6 +28,31 @@ header {
 }
 
 footer {
-    width: 100%;
+    width: 100vw;
     background-color: rgba(169, 226, 215, 0.64);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.global-nav {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.global-nav li {
+    flex: 0 0 20%;
+}
+
+.global-nav a:hover {
+    border-bottom: 3px solid #505b66;
+    font-weight: bold; 
   }
+
+
+
