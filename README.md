@@ -1,4 +1,9 @@
 # <a href="https://tweet-seeker.net/twitter">TweetSeeker</a>
+## ログイン
+初回は以下の画面からログイン。テストIDとパスワードは以下の通り。
+https://tweet-seeker.net/login
+- ID:admin@gmail.com
+- Pass:admin1234
 ## 概要
 TweetSeekerは，TwitterのAPIを利用し，キーワードに合致するTweetを検索・保存できるWebアプリです。<br>
 https://tweet-seeker.net/twitter
