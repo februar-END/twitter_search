@@ -25,14 +25,19 @@ class TwitterController extends Controller
 
     public function save(Request $requests)
     {
-        $tweets = $requests->all()['check'];
-        foreach($tweets as $number => $value) {
-            $tweet = new Tweet;
-            $tweet->user_id = $requests->user()->id;
-            $tweet->content = $value;
-            $tweet->save();
+        if(isset($requests->all()['check'])) {
+            $tweets = $requests->all()['check'];
+            foreach($tweets as $number => $value) {
+                $tweet = new Tweet;
+                $tweet->user_id = $requests->user()->id;
+                $tweet->content = $value;
+                $tweet->save();
+            }
+            return redirect()->route('tweet.index')->with('feedback.success',"保存に成功しました");
         }
-        return redirect()->route('tweet.index')->with('feedback.success',"保存に成功しました");
+        else {
+            return redirect()->route('tweet.index')->with('feedback.error',"最低１つはチェックしてください");
+        }
     }
 
     public function keep(Request $request)
@@ -48,16 +53,21 @@ class TwitterController extends Controller
 
     public function delete(Request $requests)
     {
-        $tweets = $requests->all()['check'];
-        $id = $requests->user()->id;
-        if($requests->route('id') != $id)
-        {
-            throw new AccessDeniedHttpException();
+        if(isset($requests->all()['check'])) {
+            $tweets = $requests->all()['check'];
+            $id = $requests->user()->id;
+            if($requests->route('id') != $id)
+            {
+                throw new AccessDeniedHttpException();
+            }
+            foreach($tweets as $number => $id) {
+                $tweetData = Tweet::where('id',$id)->firstOrFail();
+                $tweetData->delete();
+            }
+            return redirect()->route('tweet.keep', ['id' => $requests->user()->id])->with('feedback.success',"削除に成功しました");
         }
-        foreach($tweets as $number => $id) {
-            $tweetData = Tweet::where('id',$id)->firstOrFail();
-            $tweetData->delete();
+        else {
+            return redirect()->route('tweet.keep', ['id' => $requests->user()->id])->with('feedback.error',"最低１つはチェックしてください");
         }
-        return redirect()->route('tweet.keep', ['id' => $requests->user()->id])->with('feedback.success',"削除に成功しました");
     }
 }
