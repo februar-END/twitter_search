@@ -11,6 +11,12 @@ https://tweet-seeker.net/login
 ## 概要
 TweetSeekerは，TwitterのAPIを利用し，キーワードに合致するTweetを検索・保存できるWebアプリです。<br>
 https://tweet-seeker.net/twitter
+## 使用技術
+1. PHP 8.0.20
+2. Laravel 9.24.0
+3. JavaScript
+4. AWS
+5. tailwind css
 ## 環境(AWS)
 1. VPCで仮想ネットワークを構築。
 2. パブリックサブネットにEC2でWebサーバーを設置。
