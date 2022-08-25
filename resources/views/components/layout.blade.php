@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> 
         <title>TweetSeeker</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!--<link rel="stylesheet" href="{{ asset('css/style.css') }}">-->
+        @vite('resources/css/app.css')
     </head>
 
-<body>
+<body class="flex-1 bg-blue-200">
     <div class="container">
         <header>
-            <nav id="g_navi">
-            <h1>TweetSeeker!</h1>
-            <ul class="global-nav">
-                <li><a href="{{ route('tweet.index') }}"><p>Twitter検索</p></a></li>
+            <nav id="g_navi" class="bg-blue-200">
+            <h1 class="font-mono font-black` text-5xl text-center text-gray-800 ">TweetSeeker!</h1>
+                <a class="hover:underline hover:text-blue-900 hover:text-black font-mono text-lg text-gray-800 m-4 text-center" href="{{ route('tweet.index') }}">Twitter検索</a>
                 @auth
-                <li><a href="{{ route('tweet.keep',['id' => $id]) }}"><p>保存したTweet</p></a></li>
-                @endauth   
-            </ul>   
+                <a class="hover:underline hover:text-blue-900 hover:text-black font-mono text-lg text-gray-800 m-4 text-center" href="{{ route('tweet.keep',['id' => $id]) }}">保存したTweet</a>
+                @endauth
             </nav>
         </header>
 
@@ -26,7 +25,6 @@
             {{ $slot }}
         </div>
         <footer>
-            <a href="#top">ページトップへ</a>
         </footer>
     </div>
     <script src="{{ asset('/js/app.js') }}"></script>

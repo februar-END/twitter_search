@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Api\CallTwitterApi;
 use App\Models\Tweet;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -42,7 +43,7 @@ class TwitterController extends Controller
 
     public function keep(Request $request)
     {
-        $tweets = Tweet::where('user_id', '=', $request->route('id'))->get();
+        $tweets = Tweet::where('user_id', '=', $request->route('id'))->paginate(10);
         $id = $request->user()->id;
         if($request->route('id') != $id)
         {
